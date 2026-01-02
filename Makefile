@@ -1,10 +1,10 @@
 # ---- config knobs ----
-NUM_FILES ?= 32
-HEAT_DEPTH ?= 32768
+NUM_FILES ?= 64
+HEAT_DEPTH ?= 131072
 
 CXX := g++
 CXXFLAGS := -std=c++23 -O3 -march=native -Wall -Wextra -pedantic -flto \
-			-ftemplate-depth=32768 -g3 -ggdb -fvar-tracking-assignments \
+			-ftemplate-depth=262144 -g3 -ggdb -fvar-tracking-assignments \
 			-fconcepts
 
 HEAT_SRCS := $(shell seq 1 $(NUM_FILES) | sed 's/.*/heat&.cpp/')
