@@ -6,19 +6,20 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-25.10
+    runs-on: ubuntu-latest
+    container: archlinux:latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: update gcc-14 and libstdc++14
+      - name: install deps
         run: |
-          sudo apt update
-          sudo apt install -y gcc-15 g++-15
+          pacman -Sy --noconfirm \
+            gcc \
+            make
 
       - name: build
         run: |
-          export CXX=g++-15
           ./mkheat.sh 64 131072
           make -j4
 
