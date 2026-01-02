@@ -6,19 +6,19 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-25.10
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: update gcc and libstdc++
+      - name: update gcc-14 and libstdc++14
         run: |
-          sudo apt-get update
-          sudo apt-get install -y gcc-13 g++-13 libstdc++-13-dev
+          sudo apt update
+          sudo apt install -y gcc-15 g++-15
 
       - name: build
         run: |
-          export CXX=g++-13
+          export CXX=g++-15
           ./mkheat.sh 64 131072
           make -j4
 
