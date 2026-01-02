@@ -2,7 +2,7 @@
 NUM_FILES ?= 64
 HEAT_DEPTH ?= 131072
 
-CXX := g++
+CXX ?= g++
 CXXFLAGS := -std=c++23 -O3 -march=native -Wall -Wextra -pedantic -flto \
 			-ftemplate-depth=262144 -g3 -ggdb -fvar-tracking-assignments \
 			-fconcepts
