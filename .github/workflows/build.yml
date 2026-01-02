@@ -1,0 +1,18 @@
+name: build
+
+on:
+  push:
+    pull_request:
+
+      jobs:
+        build:
+          runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build with make
+        run: |
+          ./mkheat.sh 64 131072
+          make -j4
+
