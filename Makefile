@@ -1,11 +1,11 @@
 # ---- config knobs ----
-NUM_FILES ?= 128
-HEAT_DEPTH ?= 524288
+NUM_FILES ?= 32
+HEAT_DEPTH ?= 65536
 
 CXX ?= g++
 CXXFLAGS := -std=c++23 -O3 -march=native -Wall -Wextra -pedantic -flto \
-			-ftemplate-depth=98765432 -g3 -ggdb -fvar-tracking-assignments \
-			-fconcepts -fconstexpr-ops-limit=98765432
+			-ftemplate-depth=9876543 -g3 -ggdb -fvar-tracking-assignments \
+			-fconcepts -fconstexpr-ops-limit=9876543
 
 HEAT_SRCS := $(shell seq 1 $(NUM_FILES) | sed 's/.*/heat&.cpp/')
 OBJS := $(HEAT_SRCS:.cpp=.o) main.o
