@@ -11,8 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: build with make
+      - name: update gcc
         run: |
+          sudo apt-get update
+          sudo apt-get install -y g++-13
+
+      - name: build
+        run: |
+          export CXX=g++-13
           ./mkheat.sh 64 131072
           make -j4
 
